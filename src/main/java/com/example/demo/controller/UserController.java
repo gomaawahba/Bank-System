@@ -28,7 +28,7 @@ public class UserController {
             description = "Http status 201 CREATED"
     )
 
-    @PostMapping
+    @PostMapping("/siginup")
     public BankRsponse createAcount(@RequestBody UserRequest userRequest){
         return userService.createAcount(userRequest);
     }
