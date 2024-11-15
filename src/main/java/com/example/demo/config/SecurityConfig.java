@@ -50,10 +50,9 @@ public class SecurityConfig {
     SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
         httpSecurity.csrf(httpSecurityCsrfConfigurer -> httpSecurityCsrfConfigurer.disable())
                 .authorizeHttpRequests(authorizationManagerRequestMatcherRegistry ->
-                        authorizationManagerRequestMatcherRegistry.requestMatchers(HttpMethod.POST,"/api/user").permitAll()
-                                .requestMatchers(HttpMethod.POST,"/api/user/login").permitAll()
-                                .requestMatchers(HttpMethod.POST,"/api/user/siginup").permitAll()
-                                .anyRequest().authenticated());
+                        authorizationManagerRequestMatcherRegistry
+                               
+                                .anyRequest().permitAll());
         httpSecurity.sessionManagement(httpSecuritySessionManagementConfigurer -> httpSecuritySessionManagementConfigurer
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS));
 
